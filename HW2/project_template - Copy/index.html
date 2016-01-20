@@ -1,0 +1,61 @@
+<!doctype html>
+<head>
+	<title>Sign In</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+	<div class="container">
+    	<div class="row span12">
+        	<img src="img\head2.jpg" width="1000">        
+        </div>
+    	<div class="row">
+            <h2 style="text-align:center">
+                Please Sign In
+            </h2>
+        </div>
+        <div class="row span4 offset4">
+        <div id="panel">
+        
+        	<label id="lab">Text</label>
+            </div>        
+        </div>
+    	<div class="row span4 offset4">
+        	<input type="email" id="mail" title="Please enter your E-mail address">
+        </div>
+    	<div class="row span4 offset4">
+        	<input type="password" id="pass" title="Please enter your password">
+        </div>
+        <br>
+    	<div class="row span12" style="display:inline" align="center">
+        	<input type="button" class="btn" id="buttin" value="Sign In">
+            <input type="button" class="btn" id="buttup" value="Sign Up">          
+        </div>
+    </div>
+    <script>
+		$('#buttin').on('click',function(){
+		var m=["am.re492@gmail.com","reza_amouei@ee.kntu.ac.ir","reza.am483@gmail.com"];
+		var p=["1234","5678","9101"];
+		var usern=$('#mail').val();
+		var passw=$('#pass').val();
+		$('#panel').removeClass();
+		for (var i=0 ; i<m.length ; i++)
+		{
+			if(usern==m[i])
+			{
+				if(passw==p[i])
+				{
+					$('#panel').addClass("alert-success");
+					$('#lab').text("Signed in");
+					return;
+				}
+				$('#panel').addClass("alert-danger");
+				$('#lab').text("Not signed in");
+				return;
+			}			
+		}
+		});
+	</script>
+</body>
+</html>

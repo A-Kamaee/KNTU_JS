@@ -1,0 +1,99 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div style="background-color: #ff00ff" class="span6">
+				This is left
+				
+			</div>
+			<div style="background-color: #0000ff" class="span4">
+				This is middles
+			</div>
+			<div style="background-color: #00ffff" class="span2">
+				This is right
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="span2">
+			Number1
+			</div>
+			<div class="span8">
+				<input type="text" id="txtNumber"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2">
+			Number2(optional)
+			</div>
+			<div class="span8">
+				<input type="text" id="txtNumber2"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4 offset2 text-left">
+				<input type="button" id="btnCheckEven" value="evern Or odd" class="btn btn-success" />
+				<input type="button" id="btnPrime" value="Check Prime" class="btn btn-success" />
+				<input type="button" id="btnAdd" value="Add" class="btn btn-success" />
+			</div>
+		</div>
+		
+				
+				
+	</div>
+		<script type="text/javascript">
+        $('#btnAdd').click(function() {
+            var numAbouzar = $('#txtNumber').val();
+            var mahdi = numAbouzar[numAbouzar.length - 1];
+            if (mahdi == 0) {
+                alert("even");
+                return;
+            }
+            if (mahdi == 2) {
+                alert("even");
+                return;
+            }
+            if (mahdi == 4) {
+                alert("even");
+                return;
+            }
+            if (mahdi == 6) {
+                alert("even");
+                return;
+            }
+            if (mahdi == 8) {
+                alert("even");
+                return;
+            }
+            alert("odd");
+
+        });
+        
+        $('#btnCheckEven').click(function () {
+            var num = $('#txtNumber').val();
+            var reminder = num % 2;
+            if (reminder == 0) {
+                alert("this is even");
+            } else {
+                alert("this is odd.");
+            }
+//            alert("This is test from button and this is c " + c);
+        });
+
+        $('#btnPrime').click(function() {
+            var num1 = $('#txtNumber').val();
+            for (var i = 2; i < num1; i ++) {
+                if (num1 % i == 0) {
+                    alert("This is not prime");
+                    return;
+                }
+            }
+            alert("This is prime");
+        });
+    </script>
+</body>
+    

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+	<div class="container" style="background-color:darkblue" style="display:inline" align="center">
+    <form class="form-signin span12" >
+    	<h2 style="color:white">Please Sign In</h2>
+        <label id="txtemail" for="txtemail"><h4  style="color:white">Email :</h4></label>
+        <input type="email" id="txtmail">
+		<label id="txtpassw" for="txtemail"><h4  style="color:white">Password :</h4></label>
+        <input type="password" id="txtpass">
+        <br>
+        <input type="checkbox"><p style="color:white">Remember</p>
+        <br>
+        <button type="button" class="btn btn-default" id="btsignin">Sign In</button>
+        <button type="button" class="btn btn-default" id="btsignup">Sign Up</button>
+    </form>
+    </div>
+<script>
+	$('#txtmail').val("");
+	$('#txtpass').val("");
+	var mail=["af21@gmail.com","af212@gmail.com","af213@gmail.com"];
+	var pass=["1234","5678","91011"];
+	var flag=0;
+	$('#btsignin').on('click',function(){
+		for(i=0;i<=mail.length;i++)
+		{
+			if($('#txtmail').val()!==mail(i))
+			{
+				break;
+				flag=1;
+				alert("This e-mail doesn"+"'"+"t exist!");
+				return;	
+			}
+		}
+		if(flag!==1)
+		{
+			if($('#txtpass').val()!==pass(i))
+			{
+				alert("This password doesn"+"'"+"t match with e-mail!");	
+			}
+		}		
+	});
+</script>
+</body>
+</html>

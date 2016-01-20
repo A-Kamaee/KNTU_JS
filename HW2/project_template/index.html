@@ -1,0 +1,43 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+	<div class="container">
+    	<div class="row" align="center">
+            	<img src="img/head2.jpg" width="1023">
+        
+        </div>
+		<div class="row" align="center" >
+			<div class="btn-group" role="group" aria-label="...">
+  				<button type="button" id="home" class="btn btn-default">Home</button>
+  				<button type="button" id="profile" class="btn btn-default">Profile</button>
+  				<button type="button" id="edu" class="btn btn-default">Education</button>
+                <button type="button" id="exp" class="btn btn-default">Experiences</button>
+                <button type="button" id="skill" class="btn btn-default">Skills</button>
+                <button type="button" id="contact" class="btn btn-default">Contact me</button>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="span2" style="display:inline" align="left">
+				<img src="img\aks.jpg">
+			</div>
+			<div class="span10" style="display:inline" align="justify">
+				<h3 style="margin-left:20px">Reza Amouei</h3>
+                <h3 style="margin-left:20px">MSc Student of Control Engineering</h3>
+                <h3 style="margin-left:20px">Faculty of Electrical and Computer Engineering</h3>
+                <h3 style="margin-left:20px">Khaje Nasir University Of Technology</h3>                
+			</div>
+		</div>	
+        <script>
+			$('#home').on('click', function() { window.location = 'index.html'; });
+			$('#exp').on('click', function() { window.location = 'experiences.html'; });
+			$('#edu').on('click', function() { window.location = 'education.html'; });
+			$('#profile').on('click', function() { window.location = 'profile.html'; });
+			$('#skill').on('click', function() { window.location = 'skill.html'; });
+			$('#contact').on('click', function() { window.location = 'contact.html'; });
+		</script>
+</body>
+    

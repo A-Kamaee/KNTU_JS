@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h2>Enter youur Number:</h2>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <input type="text" class="span8" id="Number" />
+            <input type="button" id="btn" value="Submit" class="btn btn-success span4" />
+        </div>
+        <div class="row">
+            <textarea type="text" id="label" value="asdka" rows="5"  class="span12"></textarea>
+        </div>
+
+        <br>
+
+    </div>
+
+    <script type="text/javascript">
+        $('#btn').click(function () {
+            var Num = $('#Number').val();
+            var Mod;
+            var y = "";
+            $('#label').val(" ");
+            for (var i = 3; i < Num; i++) {
+                for (var j = 2; j < i; j++) {
+                    Mod = i % j;
+                    if (Mod == 0) {
+                        break;
+                    }
+                }
+                if (Mod != 0) {
+                    y = y + i + ",";
+                }
+
+            }
+            $('#label').val(y);
+        })
+    </script>
+</body>
+</html>

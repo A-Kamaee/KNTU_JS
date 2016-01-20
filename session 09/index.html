@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <div class="row">
+            <div class="span2"> Description </div>
+            <div class="span4">
+                <input id="txtInput" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="span1">
+                <input type="button" id="btnLogin" value="Login" class="btn btn-success" />
+            </div>
+            <div class="span1">
+                <input type="button" id="btnRegister" value="Register" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.info = [];
+        $('#btnRegister').click(function() {
+            window.info.push($('#txtInput').val());
+        });
+        $('#btnLogin').click(function() {
+            for (var i = 0; i < window.info.length; i = i + 1) {
+                if (window.info[i] == $('#txtInput').val()) {
+                    alert('login');
+                    return;
+                }
+            }
+            alert('fail');
+        });
+    </script>
+</body>
+</html>

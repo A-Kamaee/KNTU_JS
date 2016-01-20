@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+
+<body>
+	<div class="container">
+    	<br />
+    	<div class="row span12">
+        	<h1>Facebook</h1>
+            <p>You can post your comment about this site</p> 
+            <p>On this webpage you can send your comment about Facebook Social Network</p>    
+        </div>
+        <hr />
+    	<div class="row span12" id="ComPanel"></div>
+        <div class="row span12">
+        	<h2>Comment</h2>
+        </div>
+        <div class="row span12">
+        	<textarea id="ComText" placeholder="Write your Comment..." rows="4" class="input-block-level"></textarea>
+        </div>
+    	<div class="row span12">
+        	<input id="NameText" placeholder="Write your Name..." type="text" class="input-block-level"/>        
+        </div>
+    	<div class="row span12">
+        	<input id="DateText" type="datetime-local"/>
+        </div>
+        <div class="row span12 text-right">
+        	<input id="btnclear" type="button" class="btn-danger" value="Clear">
+            <input id="btnsubmit" type="button" class="btn-success" value="Submit">
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+		var clearcom = function(){
+			$('#ComText').val('');
+			$('#NameText').val('');
+			$('#DateText').val('');
+		}
+		var addcom = function(){
+			var ComElement=$('<div>').append($('<p>').append($('<h3>').text($('#NameText').val())))
+			.append($('<span class="small">').text($('#DateText').val())
+			.append($('<p>').append('<h3>').text($('#ComText').val())));
+			
+			ComElement.hide();
+			$('#ComPanel').append(ComElement);
+			ComElement.show();		
+		}
+		
+		$('#btnclear').click(clearcom);
+		$('#btnsubmit').click(addcom);
+	
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+
+</head>
+<body>
+    <div id="pnlWrapper" class="container">
+        <br />
+        <div>
+            <div class="row">
+                <div class="span12">
+                    <p>
+                        GitHut and RedMonk are similar but that’s to be expected since they use GitHub as a primary source of data. Both analyze public rather than private repositories which could sway results toward open source technologies.
+                    </p>
+                    <p>
+                        TIOBE is influenced by search engine resources. This is possibly why C tops their chart — the language was developed in 1969 and many historical documents are available. Newer languages such as Ruby and Go inevitably appear further down the chart.
+                    </p>
+                    <p>
+                        Educational resources are likely to affect results. For example, Python is commonly used to learn programming in schools and colleges. Many thousands of students are asking questions and completing projects but, in my experience, Python jobs are rare compared to PHP or Ruby despite it being higher in several charts. Java has a similar advantage since it has a variety of uses in education, web, desktop and mobile development.
+                    </p>
+                    <p>
+                        Demand for native app developers remains high especially in the job-related surveys. RedMonk reports that Swift jumped 46 places to number 22 in less than six months. However, app development is a young discipline. There are far more job vacancies in web and desktop programming but they are easier to fill so adverts are possibly removed sooner.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div id="pnlComment"></div>
+        <div>
+            <div class="row">
+                <div class="span12">
+                    <h2>Comment</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <textarea id="txtContent" placeholder="writer your comment here ..." rows="5" class="input-block-level"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <input id="txtName" placeholder="writer your name here ... " type="text" class="input-block-level"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <input id="txtDate" type="datetime-local"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12 text-right">
+                    <input id="btnClear" type="button" class="btn btn-danger" value="clear" />
+                    <input id="btnSubmit" type="button" class="btn btn-success" value="submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var clearComment = function () {
+            $('#txtName').val('');
+            $('#txtContent').val('');
+        }
+        var addComment = function () {
+            var commentElement = $('<div>')
+                .append($('<p>').append($('<h3>').text($('#txtName').val())).append($('<span class="small">').text('(' + Date() + ')')))
+                .append($('<p>').text($('#txtContent').val()));
+
+            commentElement.hide();
+            $('#pnlComment').append(commentElement);
+            commentElement.show('slow');
+			commentElement.animate({width:100},function(){});
+//            clearComment();
+        }
+
+        $('#btnClear').click(clearComment);
+        $('#btnSubmit').click(addComment);
+		
+		
+        $('*').not('input[type=text]').keypress(function (e) {
+            console.log(e);
+            var code = e.keyCode || e.which;
+            //Enter keycode
+            if (code == 13) {
+                addComment();
+            }
+            e.stopPropagation();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+    	<p><b>Day   :</b></p>
+    	<input type="text" id="txd">
+    </div>
+    <div class="row">
+        <p><b>Month :</b></p>
+        <input type="text" id="txm">
+    </div>
+    <div class="row">    
+        <p><b>Year  :</b></p>
+        <input type="text" id="txy">
+    </div>
+    <div class="row">
+        <input type="button" class="btn btn-default" value="Submit" id="btn">
+        <input type="date" id="dte">
+        <label id="lbel">
+    </div>
+</div>
+<script type="text/javascript">
+$('#txd').text("");
+$('#txm').text("");
+$('#txy').text("");
+
+
+$('#btn').click(function(){
+	var z=$('#dte').val();
+	console.log(z);
+	year=z[1,2,3,4];
+	console.log(year)
+	var d=parseInt($('#txd').val());
+	var m=parseInt($('#txm').val())-1;
+	var y=parseInt($('#txy').val());
+	
+	var no=new Date();
+	var da=new Date(y, m, d);
+	//console.log(no);
+	//console.log(da);
+	
+	var dif=parseInt((no-da));
+	//console.log(dif);
+	
+	var yea=parseInt(dif/(365*24*60*60));
+	var x=dif-yea*365*24*60*60;
+	//console.log(yea);
+	var mon=parseInt(x/(30*24*60*60));
+	var y=x-mon*30*24*60*60;
+	//console.log(mon);
+	var day=parseInt(y/(24*60*60));
+	//console.log(day);
+	
+	$('#lbel').text(yea+" Years,"+mon+" Months,"+day+" Days");
+	
+});
+
+
+</script>
+</body>
+    

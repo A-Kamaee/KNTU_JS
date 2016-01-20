@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <style>
+        #q {
+            color: crimson;
+        }
+
+            #q:hover {
+                background: crimson;
+                color: chartreuse;
+            }
+
+        .w {
+            background: hotpink !important;
+            color: lime !important;
+        }
+    </style>
+</head>
+<body>
+    <!--<form>-->
+<table border="0" align="center" style="background: black">
+    <tr>
+        <td>
+            <div class="alert"  id="pnlMessage">
+                برای ورود به سایت نام کاربری/رمزعبور خود را وارد کنید.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1 id="q" align="center">emel</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="txtUsername" type="text" class="w"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1 id="q" align="center">name</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="txtPassword" type="text" class="w"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" id="mahdi" style="color: aliceblue; background: darkorange;" value="delet"/>
+        </td>
+    </tr>
+</table>
+    <!--</form>-->
+    <script type="text/javascript">
+        $('#mahdi').click(function () {
+            var savedUsernames = ["abouzar", "moslem", "mahdi"];
+            var savedPasswords = ["123", "1dlfj1", "mr12312"];
+            var username = $('#txtUsername').val();
+            var password = $('#txtPassword').val();
+            for (var i = 0; i < savedUsernames.length; i++) {
+                if (savedUsernames[i] == username) {
+                    if (savedPasswords[i] == password) {
+                        $('#pnlMessage').addClass("alert-success");
+                        return;
+                    }
+                }
+            }
+            $('#pnlMessage').addClass("alert-danger");
+        });
+    </script>
+</body>

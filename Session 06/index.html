@@ -1,0 +1,109 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+	<div class="container-fluid">
+        <div class="row">
+        	<div class="span6">
+            
+                <table class="table"  id="tblpost">
+                    <tr>
+                        <td></td>  
+                        <td colspan="2"><h3>Posts</h3></td>
+                        <td></td>            
+                    </tr>
+                    <tr>
+                    	<td></td>
+                        <td colspan="2">
+                        	<input type="email" id="emailid">
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-info" value="Search" id="search">           
+                        </td>
+                    
+                    </tr>
+                </table>
+            </div>
+            <div class="span4">
+                <table class="table" id="tblcreatepost">
+                    <tr>
+                        <td>
+                        	<h3>Create post</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="textemail" title="Please Enter your E-mail"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" title="Please Enter your post"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="span2">
+                <table class="table" id="tblobservepost">
+                    <tr>
+                        <td><h3>Observe and poll</h3></td>              
+                    </tr>
+                </table>
+            </div>
+        </div> 
+    </div>
+	
+		
+				
+				
+	<script type="text/javascript">
+		var addPost = function(post)
+		{
+			for(i=0;i<=post.length-1;i++)
+				{
+					var postinfo=post[i];
+					var array = postinfo.split(":");
+					
+					var id=array[0];
+					var title=array[1];
+					var content=array[2];
+					var recorddatetime=array[3];
+					
+					var row=$('<tr class="row-template">');
+					
+					var cellid=$('<td>').text(id);
+					var celltitle=$('<td>').text(title);
+					var cellcontent=$('<td>').text(content);
+					var cellrecord=$('<td>').text(recorddatetime);
+					
+					row.append(cellid);
+					row.append(celltitle);
+					row.append(cellcontent);
+					row.append(cellrecord);
+					
+					$('#tblpost').append(row);
+					
+				};
+		}
+    	//$.ajax({
+//			url:"http://192.168.7.24/Posts/List",
+//		    success: function(data){
+//				var post=data.split(";");
+//				console.log(post);
+//				addPost(post);
+//			}			
+//		});
+		$('#search').click(function(){
+			var temp=$('#emailid').val();					
+			$.ajax({
+			url:"http://192.168.7.24/Posts/FindByUserEmail?email="+temp,
+		    success: function(data){
+				var post=data.split(";");
+				$('.row-template').hide();
+				addPost(post);
+			}			
+		});	
+					
+		});
+    </script>
+</body>
+    

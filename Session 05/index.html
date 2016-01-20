@@ -1,0 +1,63 @@
+<!doctype html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <table id="tblInfo" class="table">
+                <tr>
+                    <td>
+                        Id
+                    </td>
+                    <td>
+                        Email
+                    </td>
+                    <td>
+                        Password
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $.ajax({
+            url: "http://localhost/Users/List",
+            success: function(data) {
+                console.log(data);
+            }
+        });
+    </script>
+</body>
+
+
+
+<!--success: function (data) {-->
+<!--                var users = data.split(";");-->
+<!--                for (var mahdiCounter = 0; mahdiCounter < users.length - 1; mahdiCounter = mahdiCounter + 1) {-->
+<!--                    var info = users[mahdiCounter];-->
+<!--                    var array = info.split(":");-->
+<!---->
+<!--                    var id = array[0];-->
+<!--                    var email = array[1];-->
+<!--                    var password = array[2];-->
+<!---->
+<!--                    var row = $('<tr>-->
+<!--    ');-->
+<!---->
+<!--    var cellId = $('-->
+<!--    <td>-->
+<!--        ').text(id);-->
+<!--        var cellEmail = $('-->
+<!--    <td>-->
+<!--        ').text(email);-->
+<!--        var cellPassword = $('<input type=password disabled>').val(password);-->
+<!---->
+<!--        row.append(cellId);-->
+<!--        row.append(cellEmail);-->
+<!--        row.append(cellPassword);-->
+<!---->
+<!--        $('#tblInfo').append(row);-->
+<!--        }-->
+<!--        }-->
